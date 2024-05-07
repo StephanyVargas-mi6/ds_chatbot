@@ -1,5 +1,6 @@
 from langchain.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
+imprt streamlit as st
 
 secrets = st.secrets
 
