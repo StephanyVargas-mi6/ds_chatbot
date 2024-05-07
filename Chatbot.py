@@ -7,7 +7,7 @@ OPENAI_KEY = secrets['OPENAI_KEY']
 
 
 ## High functional materials retriever
-persist_directory_materials = os.path.join(path,"db_materials")
+persist_directory_materials = "db_materials"
 embedding = OpenAIEmbeddings()
 vectordb_materials = Chroma(embedding_function=embedding,
                   persist_directory=persist_directory_materials)
