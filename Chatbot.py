@@ -5,7 +5,7 @@ import streamlit as st
 
 ## High functional materials retriever
 persist_directory_materials = "db_materials"
-embedding = OpenAIEmbeddings(openai_api_key=OPENAI_KEY)
+embedding = OpenAIEmbeddings()
 vectordb_materials = Chroma(embedding_function=embedding,
                   persist_directory=persist_directory_materials)
 # retrieve information from the vector db
