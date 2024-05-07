@@ -2,9 +2,6 @@ from langchain.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 import streamlit as st
 
-secrets = st.secrets
-OPENAI_KEY = secrets['OPENAI_KEY']
-
 
 ## High functional materials retriever
 persist_directory_materials = "db_materials"
