@@ -1,6 +1,11 @@
 from langchain.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 
+secrets = st.secrets
+
+openai_api_key = secrets
+st.write(secrets)
+
 
 ## High functional materials retriever
 persist_directory_materials = os.path.join(path,"db_materials")
