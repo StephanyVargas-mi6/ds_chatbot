@@ -46,6 +46,24 @@ def process_llm_response(llm_response):
 
 # full Q&A
 
-query = "what are high functional materials?"
-llm_response = qa_chain(query)
-process_llm_response(llm_response)
+
+st.title("💬 Chatbot")
+st.caption("🚀 A chatbot powered by vector database retrieval and OpenAI LLM")
+
+
+# Initialize session state for both conversational and QA history
+if "messages" not in st.session_state:
+    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+
+# Chat Interaction Loop
+for msg in st.session_state.messages:
+    st.chat_message(msg["role"]).write(msg["content"])
+
+# Check for different input types
+if query := st.text_input("Ask a question (or type something to chat):"):
+    llm_response = qa_chain(query)
+    process_llm_response(llm_response)
+
+#query = "what are high functional materials?"
+#llm_response = qa_chain(query)
+#process_llm_response(llm_response)
