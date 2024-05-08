@@ -43,15 +43,9 @@ def process_llm_response(llm_response):
                    {sources.metadata['title']}
                    {sources.metadata['DOI']}
                 """)
-      source.append(sources.metadata['DOI'])
-  #print("-----------")
-
-  return answer, '\n'.join(source)
 
 # full Q&A
 
 query = "what are high functional materials?"
 llm_response = qa_chain(query)
-ans, source = process_llm_response(llm_response)
-st.write(ans)
-st.write(source)
+process_llm_response(llm_response)
