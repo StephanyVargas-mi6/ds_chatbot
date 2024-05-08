@@ -39,9 +39,9 @@ def process_llm_response(llm_response):
   #print('\n\n ---- Sources -----')
   for i, sources in enumerate(llm_response["source_documents"]):
       st.write(f"""
-                   [{i}].
-                   {sources.metadata['title']}
-                   {sources.metadata['DOI']}
+                   [{i}].\n
+                   {sources.metadata['title']}\n
+                   {sources.metadata['DOI']}\n\n
                 """)
 
 # full Q&A
