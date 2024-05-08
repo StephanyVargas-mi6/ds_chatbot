@@ -37,12 +37,14 @@ def process_llm_response(llm_response):
   #print(answer)
 
   #print('\n\n ---- Sources -----')
-  #for source in llm_response["source_documents"]:
-  #    print(source.metadata['title'])
-  #    print(source.metadata['DOI'])
+  source = []
+  for source in llm_response["source_documents"]:
+      source.append(source.metadata['title'])
+      source.append(source.metadata['DOI'])
+      source.append('\n')
   #print("-----------")
 
-  return answer, llm_response["source_documents"]
+  return answer, '\n'.join(source)
 
 # full Q&A
 
