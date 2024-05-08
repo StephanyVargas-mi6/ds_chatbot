@@ -38,9 +38,9 @@ def process_llm_response(llm_response):
 
   #print('\n\n ---- Sources -----')
   source = []
-  for source in llm_response["source_documents"]:
-      source.append(source.metadata['title'])
-      source.append(source.metadata['DOI'])
+  for sources in llm_response["source_documents"]:
+      source.append(sources.metadata['title'])
+      source.append(sources.metadata['DOI'])
       source.append('\n')
   #print("-----------")
 
