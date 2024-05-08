@@ -28,7 +28,7 @@ qa_chain = RetrievalQA.from_chain_type(llm=OpenAI(),
                                   retriever=retriever_materials,
                                   return_source_documents=True)
 ## Cite sources
-def process_llm_response(llm_response):
+def process_llm_response_old(llm_response):
   #print('---- Query ---')
   #print(llm_response['query'],'\n')
 
@@ -43,6 +43,20 @@ def process_llm_response(llm_response):
                    {sources.metadata['title']}\n
                    {sources.metadata['DOI']}\n\n
                 """)
+
+def process_llm_response(llm_response):
+    st.markdown("## Answer")  # Header
+    st.write(llm_response['result']) 
+
+    st.markdown("## Sources")
+
+    for i, source in enumerate(llm_response["source_documents"]):
+        st.markdown(f"**Source {i+1}**") 
+        st.write(f" * **Title:** {source.metadata['title']}")
+        if 'DOI' in source.metadata:
+            st.write(f" * **DOI:** {source.metadata['DOI']}") 
+        st.markdown("---")  # Separator between sources
+
 
 # full Q&A
 
