@@ -23,7 +23,7 @@ from langchain_openai import OpenAI
 
 llm=OpenAI()
 # create the chain to answer questions
-qa_materials_chain = RetrievalQA.from_chain_type(llm=OpenAI(),
+qa_chain = RetrievalQA.from_chain_type(llm=OpenAI(),
                                   chain_type="stuff",
                                   retriever=retriever_materials,
                                   return_source_documents=True)
@@ -73,11 +73,11 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
-tab1, tab2 = st.tabs(["General Functional Materials", "High Performance Metals"])
+#tab1, tab2 = st.tabs(["General Functional Materials", "High Performance Metals"])
 
 # Check for different input types
 if query := st.text_input("Ask a question (or type something to chat):"):
-    llm_response = qa_materials_chain(query)
+    llm_response = qa_chain(query)
     process_llm_response(llm_response)
 
 #query = "what are high functional materials?"
