@@ -23,7 +23,7 @@
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
     // Install app dependencies.
-    "postCreateCommand": "pip3 install --user pysqlite3-binary",
+    //"postCreateCommand": "pip3 install --user pysqlite3-binary",
     "postCreateCommand": "pip3 install --user -r requirements.txt",
     //"postCreateCommand": "apt-get install sqlite3>=3.35.0",
     //"postCreateCommand": "pip3 install --user pysqlite3-binary",
