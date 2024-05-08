@@ -5,6 +5,7 @@ duckduckgo-search
 anthropic>=0.3.0
 trubrics>=1.4.3
 streamlit-feedback
-chromadb==0.3.29
+chromadb==0.5.0
 tiktoken 
 langchain_openai
+pysqlite3-binary
