@@ -16,9 +16,6 @@ vectordb_materials = Chroma(embedding_function=embedding,
                   persist_directory=persist_directory_materials)
 # retrieve information from the vector db
 retriever_materials = vectordb_materials.as_retriever() # search_kwargs={"k": 2} # search up to 2 most similar papers, default 4
-docs = retriever_materials.invoke("what are high functional materials?")
-
-st.write(docs)
 
 # full Q&A
 from langchain.chains import RetrievalQA
@@ -32,24 +29,25 @@ qa_chain = RetrievalQA.from_chain_type(llm=OpenAI(),
                                   return_source_documents=True)
 ## Cite sources
 def process_llm_response(llm_response):
-  print('---- Query ---')
-  print(llm_response['query'],'\n')
+  #print('---- Query ---')
+  #print(llm_response['query'],'\n')
 
-  print('---- Answer ---')
+  #print('---- Answer ---')
   answer = llm_response['result']
-  print(answer)
+  #print(answer)
 
-  print('\n\n ---- Sources -----')
-  for source in llm_response["source_documents"]:
-      print(source.metadata['title'])
-      print(source.metadata['DOI'])
-  print("-----------")
+  #print('\n\n ---- Sources -----')
+  #for source in llm_response["source_documents"]:
+  #    print(source.metadata['title'])
+  #    print(source.metadata['DOI'])
+  #print("-----------")
 
-  return answer
+  return answer, llm_response["source_documents"]
 
 # full Q&A
 
 query = "what are high functional materials?"
 llm_response = qa_chain(query)
-ans1 = process_llm_response(llm_response)
-st.write(ans1)
+ans, source = process_llm_response(llm_response)
+st.write(ans)
+st.write(source)
