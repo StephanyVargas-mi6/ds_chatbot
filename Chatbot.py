@@ -37,7 +37,7 @@ def process_llm_response(llm_response):
 
   print('---- Answer ---')
   answer = llm_response['result']
-  print(textwrap.fill(answer, 80))
+  print(answer)
 
   print('\n\n ---- Sources -----')
   for source in llm_response["source_documents"]:
