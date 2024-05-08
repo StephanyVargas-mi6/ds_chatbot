@@ -34,14 +34,16 @@ def process_llm_response(llm_response):
 
   #print('---- Answer ---')
   answer = llm_response['result']
-  #print(answer)
+  st.write(answer)
 
   #print('\n\n ---- Sources -----')
-  source = []
-  for sources in llm_response["source_documents"]:
-      source.append(sources.metadata['title'])
+  for i, sources in enumerate(llm_response["source_documents"]):
+      st.write(f"""
+                   [{i}].
+                   {sources.metadata['title']}
+                   {sources.metadata['DOI']}
+                """)
       source.append(sources.metadata['DOI'])
-      source.append('\n')
   #print("-----------")
 
   return answer, '\n'.join(source)
