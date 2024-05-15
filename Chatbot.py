@@ -98,6 +98,12 @@ def feedback_page():
 
 with st.sidebar:
     st.header("Apps")
+    if st.button("Chat with Internal Data"):
+        st.session_state.page = "home"
+    if st.button("Chat with Search"):
+        st.session_state.page = "search"    
+    if st.button("Chat with User Feedback"):
+        st.session_state.page = "feedback"
     if st.button("Chat with Files"):
         st.session_state.page = "files"
     if st.button("Chat with Search"):
