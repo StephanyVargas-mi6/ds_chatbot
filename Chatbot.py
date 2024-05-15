@@ -7,7 +7,7 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from langchain.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 import streamlit as st
-import File_Q&A, Chat_with_search, Chat_with_user_feedback
+import File_QA, Chat_with_search, Chat_with_user_feedback
 from langchain.chains import RetrievalQA
 from langchain_openai import OpenAI
 
