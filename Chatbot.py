@@ -106,10 +106,6 @@ with st.sidebar:
         st.session_state.page = "feedback"
     if st.button("Chat with Files"):
         st.session_state.page = "files"
-    if st.button("Chat with Search"):
-        st.session_state.page = "search"    
-    if st.button("Chat with User Feedback"):
-        st.session_state.page = "feedback"
 
 
 if st.session_state.page == "home":
