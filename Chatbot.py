@@ -84,7 +84,7 @@ def home_page():
 
 def files_page():
     st.title("Chat with Files")
-    File_Q&A
+    File_QA
 
 def search_page():
     st.title("Chat with Search")
